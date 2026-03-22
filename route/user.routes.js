@@ -2,9 +2,10 @@ import express from "express";
 import {
   registerUserController,
   loginUserController,
+  verifyMe,
 } from "../controller/user.controller.js";
 
-import { protectUser } from "../middleware/userAuth.middleware.js";
+import protect from "../middleware/userAuth.middleware.js";
 
 const router = express.Router();
 
@@ -15,16 +16,11 @@ router.post("/login", loginUserController);
 
 
 // 🔹 Protected Routes
-router.get("/profile", protectUser, (req, res) => {
-  res.status(200).json({
-    success: true,
-    user: req.user,
-  });
-});
+router.get("/auth/me", protect, verifyMe);
 
 
 // 🔹 Update Profile
-router.put("/update-profile", protectUser, async (req, res) => {
+router.put("/update-profile", protect, async (req, res) => {
   try {
     const { name, mobile } = req.body;
 

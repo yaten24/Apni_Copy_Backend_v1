@@ -42,23 +42,22 @@ const userSchema = new mongoose.Schema(
     },
 
     // 🔹 Location (VERY IMPORTANT for your platform)
-    // location: {
-    //   city: {
-    //     type: String,
-    //     required: true,
-    //   },
-    //   state: String,
-    //   country: {
-    //     type: String,
-    //     default: "India",
-    //   },
-    //   pincode: String,
+    location: {
+      city: {
+        type: String,
+      },
+      state: String,
+      country: {
+        type: String,
+        default: "India",
+      },
+      pincode: String,
 
-    //   coordinates: {
-    //     lat: Number,
-    //     lng: Number,
-    //   },
-    // },
+      coordinates: {
+        lat: Number,
+        lng: Number,
+      },
+    },
 
     // // 🔹 Booking Related
     // bookings: [
