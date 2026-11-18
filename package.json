@@ -1,24 +1,27 @@
 {
-  "name": "backend",
+  "name": "apnicopy-api",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
+  "description": "Apni Copy API: hire verified local workers",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "check": "node --check server.js && node --check src/models.js && node --check src/util.js && node --check src/schemas.js && node --check src/uploads.js && node --check src/bookings.js && node --check src/routes/auth.js && node --check src/routes/public.js && node --check src/routes/customer.js && node --check src/routes/worker.js && node --check src/routes/admin.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.3.1",
     "multer": "^2.1.1",
-    "nodemon": "^3.1.14"
+    "zod": "^3.25.76"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
